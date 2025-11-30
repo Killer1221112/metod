@@ -1,0 +1,55 @@
+-- futu﻿ristic_loader.lua
+local p = game.Players.LocalPlayer
+local g = Instance.new("ScreenGui", p:WaitForChild("PlayerGui"))
+g.Name = "FuturisticLoader"
+
+local f = Instance.new("Frame", g)
+f.Size = UDim2.new(1, 0, 1, 0)
+f.BackgroundColor3 = Color3.new(0, 0, 0)
+
+local i = Instance.new("TextBox", g)
+i.Size = UDim2.new(.8, 0, .1, 0)
+i.Position = UDim2.new(.1, 0, .25, 0)
+i.TextScaled = true
+i.PlaceholderText = "Inserta el link de tu servidor"
+i.BackgroundColor3 = Color3.fromRGB(10, 25, 25)
+i.TextColor3 = Color3.fromRGB(0, 255, 255)
+
+local b = Instance.new("Frame", g)
+b.Size = UDim2.new(.8, 0, .06, 0)
+b.Position = UDim2.new(.1, 0, .55, 0)
+b.BackgroundColor3 = Color3.fromRGB(20, 50, 50)
+
+local p2 = Instance.new("Frame", b)
+p2.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+p2.Size = UDim2.new(0, 0, 1, 0)
+
+local t = Instance.new("TextLabel", g)
+t.Size = UDim2.new(.8, 0, .05, 0)
+t.Position = UDim2.new(.1, 0, .48, 0)
+t.BackgroundTransparency = 1
+t.TextColor3 = Color3.fromRGB(0, 255, 255)
+t.TextScaled = true
+
+local s = Instance.new("Sound", g)
+s.SoundId = "rbxassetid://1847352424" -- puedes cambiar a otro ID si lo deseas
+s.Volume = 1
+s.Looped = true
+
+for c = 0, 78 do
+    p2:TweenSize(UDim2.new(c/100, 0, 1, 0), "Out", "Linear", .04, true)
+    t.Text = c .. "%"
+    task.wait(.04)
+end
+
+t.Text = "79% (Procesando...)"
+task.wait(240) -- 4 minutos
+
+for c = 79, 100 do
+    p2:TweenSize(UDim2.new(c/100, 0, 1, 0), "Out", "Linear", .04, true)
+    t.Text = c .. "%"
+    task.wait(.04)
+end
+
+s:Play()
+
